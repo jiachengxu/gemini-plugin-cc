@@ -1,0 +1,20 @@
+{
+  "name": "@gemini/gemini-plugin-cc",
+  "version": "1.0.0",
+  "description": "Claude Code plugin for Google Gemini CLI integration",
+  "type": "module",
+  "license": "Apache-2.0",
+  "engines": {
+    "node": ">=18.18.0"
+  },
+  "scripts": {
+    "test": "node --test tests/**/*.test.mjs",
+    "lint": "eslint --max-warnings=0 .",
+    "lint:fix": "eslint --fix ."
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "eslint": "^10.2.0",
+    "globals": "^17.4.0"
+  }
+}

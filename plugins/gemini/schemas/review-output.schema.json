@@ -1,0 +1,44 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ReviewOutput",
+  "description": "Structured output from a Gemini code review",
+  "type": "object",
+  "properties": {
+    "sessionId": { "type": ["string", "null"] },
+    "model": { "type": ["string", "null"] },
+    "content": { "type": "string" },
+    "status": { "type": ["string", "null"], "enum": ["success", "error", null] },
+    "stats": {
+      "type": ["object", "null"],
+      "properties": {
+        "total_tokens": { "type": "number" },
+        "input_tokens": { "type": "number" },
+        "output_tokens": { "type": "number" },
+        "duration_ms": { "type": "number" },
+        "tool_calls": { "type": "number" }
+      }
+    },
+    "parsed": {
+      "type": "object",
+      "properties": {
+        "verdict": { "type": ["string", "null"], "enum": ["pass", "fail", "warning", null] },
+        "summary": { "type": "string" },
+        "findings": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "text": { "type": "string" },
+              "severity": { "type": "string", "enum": ["critical", "error", "warning", "info"] },
+              "file": { "type": ["string", "null"] },
+              "line": { "type": ["integer", "null"] }
+            },
+            "required": ["text", "severity"]
+          }
+        }
+      },
+      "required": ["verdict", "summary", "findings"]
+    }
+  },
+  "required": ["content", "parsed"]
+}

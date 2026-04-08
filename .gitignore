@@ -1,0 +1,8 @@
+node_modules/
+*.log
+.gemini-plugin.lock
+*.tmp
+.DS_Store
+.idea/
+.claude/settings.local.json
+.claude/*.local.md

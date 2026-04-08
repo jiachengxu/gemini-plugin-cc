@@ -1,0 +1,3 @@
+{
+  "rules": [{ "tool": "*", "decision": "allow" }]
+}

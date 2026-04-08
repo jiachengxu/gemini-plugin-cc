@@ -1,0 +1,21 @@
+{
+  "name": "gemini-plugin-cc",
+  "owner": {
+    "name": "Jiacheng Xu"
+  },
+  "metadata": {
+    "description": "Gemini CLI plugin for Claude Code — code review, task delegation, and investigation.",
+    "version": "1.0.0"
+  },
+  "plugins": [
+    {
+      "name": "gemini",
+      "description": "Integrate Google Gemini CLI as a subagent in Claude Code for code review, task delegation, and investigation.",
+      "version": "1.0.0",
+      "author": {
+        "name": "Jiacheng Xu"
+      },
+      "source": "./plugins/gemini"
+    }
+  ]
+}

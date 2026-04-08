@@ -1,0 +1,7 @@
+{"type":"init","timestamp":"2026-04-08T10:00:00Z","session_id":"sess-bad","model":"gemini-2.5-flash"}
+not valid json at all
+{"type":"message","timestamp":"2026-04-08T10:00:01Z","role":"assistant","content":"hello"}
+
+{"type":"some_future_event","timestamp":"2026-04-08T10:00:02Z","data":{"foo":"bar"}}
+{"no_type_field":true}
+{"type":"result","timestamp":"2026-04-08T10:00:03Z","status":"success","stats":{"total_tokens":100}}

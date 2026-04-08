@@ -1,0 +1,5 @@
+{
+  "name": "gemini",
+  "version": "1.0.0",
+  "description": "Integrate Google Gemini CLI as a subagent in Claude Code for code review, task delegation, and investigation."
+}
