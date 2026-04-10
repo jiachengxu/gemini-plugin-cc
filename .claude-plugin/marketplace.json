@@ -5,13 +5,13 @@
   },
   "metadata": {
     "description": "Gemini CLI plugin for Claude Code — code review, task delegation, and investigation.",
-    "version": "1.0.0"
+    "version": "1.1.0"
   },
   "plugins": [
     {
       "name": "gemini",
       "description": "Integrate Google Gemini CLI as a subagent in Claude Code for code review, task delegation, and investigation.",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "author": {
         "name": "Jiacheng Xu"
       },

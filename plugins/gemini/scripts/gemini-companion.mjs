@@ -32,7 +32,7 @@ import { fileURLToPath } from 'node:url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-const VERSION = '1.0.0';
+const VERSION = '1.1.0';
 
 async function main() {
   const { flags, positional } = parseArgs();

@@ -7,7 +7,7 @@ const STATE_FILE = 'state.json';
 const LOCK_FILE = '.gemini-plugin.lock';
 
 const DEFAULT_STATE = {
-  version: '1.0.0',
+  version: '1.1.0',
   capabilities: {
     cliVersion: null,
     hasStreamJson: false,

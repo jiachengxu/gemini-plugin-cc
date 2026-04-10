@@ -1,6 +1,6 @@
 {
   "name": "@gemini/gemini-plugin-cc",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Claude Code plugin for Google Gemini CLI integration",
   "type": "module",
   "license": "Apache-2.0",
