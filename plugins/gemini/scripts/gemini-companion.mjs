@@ -32,7 +32,14 @@ import { fileURLToPath } from 'node:url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-const VERSION = '1.1.0';
+let VERSION = 'unknown';
+try {
+  VERSION = JSON.parse(
+    readFileSync(join(__dirname, '../.claude-plugin/plugin.json'), 'utf8')
+  ).version;
+} catch {
+  // plugin.json missing or malformed — non-fatal, use fallback
+}
 
 async function main() {
   const { flags, positional } = parseArgs();

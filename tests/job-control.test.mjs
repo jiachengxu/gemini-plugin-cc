@@ -19,7 +19,6 @@ function makeTmpDataDir() {
   const dir = mkdtempSync(join(tmpdir(), 'job-test-'));
   // Initialize with empty state
   writeState(dir, {
-    version: '1.1.0',
     capabilities: {},
     config: { maxTrackedJobs: 50 },
     jobs: [],
