@@ -5,7 +5,7 @@ Internal helper contract for invoking the Gemini companion script from the gemin
 ## Invocation
 
 ```bash
-node ${CLAUDE_PLUGIN_ROOT}/scripts/gemini-companion.mjs task [flags] "<prompt>"
+node "${CLAUDE_PLUGIN_ROOT}/scripts/gemini-companion.mjs" task [flags] "<prompt>"
 ```
 
 ## Contract

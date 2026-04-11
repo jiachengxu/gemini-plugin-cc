@@ -7,7 +7,8 @@
 
 import { existsSync, appendFileSync, readdirSync, unlinkSync } from 'node:fs';
 import { execSync } from 'node:child_process';
-import { join } from 'node:path';
+import { dirname, join, resolve } from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { getWorkspaceKey } from '../scripts/lib/workspace.mjs';
 import {
   getDataDir,
@@ -17,6 +18,11 @@ import {
   acquireStateLock,
 } from '../scripts/lib/state.mjs';
 import { isProcessAlive } from '../scripts/lib/process.mjs';
+
+// Derive plugin root from this file's location (hooks/ → plugin root).
+// Used as a fallback when CLAUDE_PLUGIN_ROOT is not set as an env var.
+const __filename = fileURLToPath(import.meta.url);
+const PLUGIN_ROOT = resolve(dirname(__filename), '..');
 
 const event = process.argv[2];
 
@@ -44,12 +50,15 @@ async function onSessionStart() {
   const workspaceKey = getWorkspaceKey();
   const sessionId = process.env.CLAUDE_SESSION_ID || '';
 
-  // Pass through CLAUDE_PLUGIN_DATA if already set by the runtime;
-  // otherwise export nothing (getDataDir falls back to ~/.claude/...)
+  const pluginRoot = process.env.CLAUDE_PLUGIN_ROOT || PLUGIN_ROOT;
+
   const lines = [
     `GEMINI_PLUGIN_SESSION_ID=${sessionId}`,
     `GEMINI_PLUGIN_WORKSPACE_KEY=${workspaceKey}`,
+    `CLAUDE_PLUGIN_ROOT=${pluginRoot}`,
   ];
+  // Pass through CLAUDE_PLUGIN_DATA if already set by the runtime;
+  // otherwise export nothing (getDataDir falls back to ~/.claude/...)
   if (process.env.CLAUDE_PLUGIN_DATA) {
     lines.push(`CLAUDE_PLUGIN_DATA=${process.env.CLAUDE_PLUGIN_DATA}`);
   }
